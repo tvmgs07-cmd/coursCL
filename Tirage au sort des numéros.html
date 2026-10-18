@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tirage au sort des numéros</title>
+<style>
+:root{--bg:#f3f5fb;--card:#fff;--text:#18202f;--muted:#6b7487;--a:#5b3df5;--a2:#2da8ff;--ok:#12a36b;--bad:#e5484d;--border:#e1e5ef;--soft:#eef0fa;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1118;--card:#171c27;--text:#eaeef7;--muted:#9aa4b8;--a:#8b79ff;--a2:#4cb8ff;--ok:#2dd196;--bad:#ff6b70;--border:#272e3d;--soft:#1f2634}}
+:root[data-theme="dark"]{--bg:#0e1118;--card:#171c27;--text:#eaeef7;--muted:#9aa4b8;--a:#8b79ff;--a2:#4cb8ff;--ok:#2dd196;--bad:#ff6b70;--border:#272e3d;--soft:#1f2634}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.45}
+header{background:linear-gradient(135deg,var(--a),var(--a2));color:#fff;padding:26px 16px 70px;text-align:center}
+header h1{margin:0;font-size:1.6rem;letter-spacing:.3px}
+header p{margin:6px 0 0;opacity:.9;font-size:.95rem}
+main{max-width:780px;margin:-48px auto 0;padding:0 14px 40px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 8px 24px rgba(30,30,80,.08);margin-bottom:16px}
+.stat{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-bottom:10px}
+.bar{height:8px;background:var(--soft);border-radius:8px;overflow:hidden;margin-bottom:14px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--a2));transition:width .5s}
+.stage{text-align:center;padding:6px 0 4px}
+.lbl{color:var(--muted);font-size:.9rem;min-height:1.3em}
+.ball{width:150px;height:150px;margin:10px auto;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:4.2rem;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--a),var(--a2));box-shadow:0 10px 30px rgba(91,61,245,.35)}
+.ball.spin{animation:pulse .35s infinite alternate}
+.ball.out{background:linear-gradient(135deg,#c0392b,var(--bad));box-shadow:0 10px 30px rgba(229,72,77,.35)}
+.ball.pop{animation:pop .5s}
+@keyframes pulse{to{transform:scale(1.06)}}
+@keyframes pop{0%{transform:scale(.7)}60%{transform:scale(1.12)}100%{transform:scale(1)}}
+.badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.82rem;font-weight:600;background:var(--soft);color:var(--a)}
+.badge.out{background:rgba(229,72,77,.14);color:var(--bad)}
+.qbox{margin:14px 0 0;padding:16px;border-radius:14px;background:var(--soft);border-left:5px solid var(--a);text-align:left;font-size:1.1rem;min-height:70px;display:none}
+.qbox.show{display:block;animation:pop .45s}
+.qbox b{color:var(--a)}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btns button{flex:1;min-width:150px;padding:14px;border-radius:12px;border:none;font-size:1rem;font-weight:700;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--a),var(--a2))}
+.btns button:disabled{opacity:.35;cursor:default}
+.btns button.ghost{flex:0 0 auto;min-width:0;background:var(--soft);color:var(--muted);font-weight:600}
+.chips{display:grid;grid-template-columns:repeat(10,1fr);gap:6px}
+.chip{text-align:center;padding:6px 0 4px;border-radius:10px;background:var(--soft);font-weight:700;font-size:.9rem}
+.chip small{display:block;font-size:.55rem;letter-spacing:2px;color:var(--ok);height:10px}
+.chip.cur{outline:2px solid var(--a)}
+.chip.x{opacity:.35;text-decoration:line-through;color:var(--bad)}
+h2{font-size:1.05rem;margin:0 0 10px}
+.table{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+td,th{padding:8px 8px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600}
+td:first-child{font-weight:800;width:56px}
+.q1{margin-bottom:4px}
+.tag{font-size:.72rem;color:var(--bad);font-weight:700}
+.nm{font-size:1.5rem;font-weight:800;min-height:2em;margin-top:4px}.list{display:grid;grid-template-columns:1fr 1fr;gap:6px}.it{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:10px;background:var(--soft);font-size:.88rem}.it b{min-width:22px;color:var(--a)}.it span{flex:1}.it small{color:var(--ok);letter-spacing:2px;font-size:.6rem}.it.x{opacity:.35;text-decoration:line-through}.it.cur{outline:2px solid var(--a)}@media(max-width:520px){.chips{grid-template-columns:repeat(5,1fr)}.ball{width:120px;height:120px;font-size:3.4rem}}
+</style></head><body>
+<header><h1>🎲 Tirage au sort</h1><p>Un numéro sort, puis revient. À la 3ᵉ sortie, il est éliminé.</p></header>
+<main>
+<div class="card">
+  <div class="stat"><span id="s1"></span><span id="s2"></span></div>
+  <div class="stage">
+    <div class="lbl" id="lbl">Prêt ? Lance le tirage.</div>
+    <div class="ball" id="ball">?</div>
+    <div class="nm" id="nm"></div>
+    <span class="badge" id="badge" style="display:none"></span>
+  </div>
+  <div class="btns">
+    <button id="bNum">🎲 Tirer un numéro</button>
+    <button id="reset" class="ghost">Réinitialiser</button>
+  </div>
+</div>
+<div class="card"><h2>La liste</h2><div class="list" id="list"></div>
+<p class="lbl" style="margin:10px 0 0">Points verts = nombre de sorties. Un nom barré est éliminé.</p></div>
+<div class="card"><h2>Historique des tirages</h2><div class="table"><table><thead><tr><th>#</th><th>N°</th><th>Nom</th><th>Sortie</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+</main>
+<script>
+const NAMES=["ENNAIR","HATIM","BIRIK","EL HACHIMI","ZEBBOUJ","CHIADNI","DENNAOUI","LAKNIFLI","EL GHAZOUANI","SABRI","EL BACHY","AZZOUZ","BACHIR","REDA","ELKOUZE","ELMGHARI","CHAKRANI","IMANI","TALIDI","ATTOBI"];
+const P=NAMES.length,MAX=2,KEY="tirage_noms_v1";
+let st={cnt:{},log:[],elim:[],cur:null};
+try{const x=localStorage.getItem(KEY);if(x)st=JSON.parse(x)||st}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function rnd(n){const a=new Uint32Array(1),lim=Math.floor(4294967296/n)*n;do{crypto.getRandomValues(a)}while(a[0]>=lim);return a[0]%n}
+const $=id=>document.getElementById(id);
+let busy=false;
+function pool(){const r=[];for(let i=1;i<=P;i++)if(!st.elim.includes(i))r.push(i);return r}
+function badge(t,out){const b=$('badge');b.style.display=t?"inline-block":"none";b.textContent=t||"";b.className="badge"+(out?" out":"")}
+function render(){
+  $('s1').textContent="Tirages effectués : "+st.log.length;
+  $('s2').textContent="Numéros en jeu : "+pool().length+" / "+P;
+  const l=$('list');l.innerHTML="";
+  NAMES.forEach((nm,k)=>{
+    const i=k+1,d=document.createElement('div');
+    d.className="it"+(st.elim.includes(i)?" x":"")+(st.cur===i?" cur":"");
+    const a=document.createElement('b');a.textContent=i;
+    const b=document.createElement('span');b.textContent=nm;
+    const c=document.createElement('small');c.textContent="●".repeat(Math.min(st.cnt[i]||0,MAX));
+    d.append(a,b,c);l.appendChild(d);
+  });
+  const rows=$('rows');rows.innerHTML="";
+  st.log.slice().reverse().forEach((e,idx)=>{
+    const tr=document.createElement('tr');
+    [st.log.length-idx,e.p,NAMES[e.p-1],e.n>MAX?"3ᵉ → éliminé":e.n+(e.n===1?"ʳᵉ":"ᵉ")].forEach((v,j)=>{const td=document.createElement('td');td.textContent=v;if(j===3&&e.n>MAX)td.className="tag";tr.appendChild(td)});
+    rows.appendChild(tr);
+  });
+  $('bNum').disabled=busy||pool().length===0;
+  if(!pool().length)$('lbl').textContent="🎉 Tous les numéros sont éliminés. Tirage terminé !";
+}
+$('bNum').onclick=async()=>{
+  const pl=pool();if(!pl.length||busy)return;
+  busy=true;render();
+  const p=pl[rnd(pl.length)],ball=$('ball');
+  badge("");$('nm').textContent="";$('lbl').textContent="Tirage en cours…";ball.className="ball spin";
+  for(let i=0;i<24;i++){const v=pl[rnd(pl.length)];ball.textContent=v;$('nm').textContent=NAMES[v-1];await new Promise(r=>setTimeout(r,55+i*3))}
+  ball.textContent=p;$('nm').textContent=NAMES[p-1];
+  st.cur=p;st.cnt[p]=(st.cnt[p]||0)+1;
+  const n=st.cnt[p];st.log.push({p,n});
+  if(n>MAX){st.elim.push(p);ball.className="ball out pop";badge("3ᵉ sortie → éliminé ❌",true);$('lbl').textContent="Le numéro "+p+" est éliminé.";}
+  else{ball.className="ball pop";badge(n===1?"1ʳᵉ sortie":"2ᵉ sortie");$('lbl').textContent="Numéro tiré !";}
+  busy=false;save();render();
+};
+$('reset').onclick=()=>{if(busy||!confirm("Réinitialiser tout le tirage ?"))return;st={cnt:{},log:[],elim:[],cur:null};save();$('ball').textContent="?";$('ball').className="ball";$('nm').textContent="";badge("");$('lbl').textContent="Prêt ? Lance le tirage.";render()};
+if(st.cur){$('ball').textContent=st.cur;$('nm').textContent=NAMES[st.cur-1];}
+render();
+</script></body></html>
