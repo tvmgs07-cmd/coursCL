@@ -80,6 +80,33 @@ th{color:var(--muted);font-weight:600;text-transform:uppercase;font-size:.75rem;
 .rule{margin:12px 0 0;padding:10px 12px;border-radius:6px;background:rgba(242,140,27,.12);border:1px solid var(--or);font-size:.9rem}
 .it.abs{opacity:.3}
 @media(max-width:520px){.pres{grid-template-columns:1fr 1fr}}
+.bar{position:relative;overflow:visible;height:8px;margin:22px 0 14px}
+.bar i{border-radius:4px}
+#lk{position:absolute;top:-15px;left:0;width:34px;height:14px;transform:translateX(-100%);transition:left .5s}
+.rule{margin:0 0 14px}
+.golink{color:var(--or);font-weight:700;font-size:.9rem;text-decoration:none;border-bottom:1px dashed var(--or)}
+.board{position:relative;overflow:hidden}
+.cf{position:absolute;top:-12px;width:7px;height:11px;border-radius:1px;animation:cfall 1.5s ease-in forwards;pointer-events:none}
+@keyframes cfall{to{transform:translateY(190px) rotate(560deg);opacity:0}}
+.qcard{background:none;border:none;padding:0}
+.tk{position:relative;overflow:hidden;background:var(--card);border:1.5px solid var(--or);border-radius:10px}
+.tk.in{animation:tkin .65s cubic-bezier(.2,.9,.3,1.15) both}
+@keyframes tkin{from{transform:translateX(70px) rotate(2.5deg);opacity:0}to{transform:none;opacity:1}}
+.tk-top{display:flex;justify-content:space-between;gap:8px;background:var(--or);color:#1f2629;padding:6px 14px;font-weight:800;letter-spacing:1.4px;font-size:.72rem;text-transform:uppercase}
+.tk-body{position:relative;display:flex;gap:14px;align-items:center;padding:14px 16px 38px}
+.tk-body:before,.tk-body:after{content:"";position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:var(--card);border:1.5px solid var(--or);transform:translateY(-50%)}
+.tk-body:before{left:-10px}.tk-body:after{right:-10px}
+.tk-l{min-width:96px;text-align:center}
+.tk-l small,.tk-r small{display:block;font-size:.7rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+.tk-l b{display:block;font-size:2.3rem;line-height:1.05;color:var(--or)}
+.tk-l span{display:block;font-size:.8rem;font-weight:700}
+.tk-sep{align-self:stretch;border-left:2px dashed var(--border)}
+.tk-r small{color:var(--or)}
+.tk-r p{margin:4px 0 0;font-size:1.12rem;line-height:1.4}
+.tk-stamp{position:absolute;right:20px;bottom:8px;padding:1px 10px;border:3px solid var(--ok);border-radius:6px;color:var(--ok);font-weight:900;letter-spacing:2px;font-size:.85rem;transform:rotate(-10deg);opacity:.85}
+.tk.in .tk-stamp{animation:stamp .4s .6s both}
+@keyframes stamp{0%{transform:rotate(-10deg) scale(2.6);opacity:0}70%{opacity:1}100%{transform:rotate(-10deg) scale(1);opacity:.85}}
+@media(max-width:520px){.tk-body{flex-direction:column;align-items:flex-start;gap:8px}.tk-sep{display:none}.tk-l{text-align:left;min-width:0}}
 </style></head><body>
 <header>
   <div class="form">Formateur : <b>Hamid ElAsri</b></div>
@@ -104,13 +131,10 @@ th{color:var(--muted);font-weight:600;text-transform:uppercase;font-size:.75rem;
 <circle cx="146" cy="46" r="1.4" fill="#ffe08a"/><g><circle cx="20" cy="65" r="5" fill="#2b3134"/><circle cx="20" cy="65" r="1.8" fill="#9fb0b3"/><path d="M15.8 65H24.2M20 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 20 65" to="360 20 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="40" cy="65" r="5" fill="#2b3134"/><circle cx="40" cy="65" r="1.8" fill="#9fb0b3"/><path d="M35.8 65H44.2M40 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 40 65" to="360 40 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="110" cy="65" r="5" fill="#2b3134"/><circle cx="110" cy="65" r="1.8" fill="#9fb0b3"/><path d="M105.8 65H114.2M110 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 110 65" to="360 110 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="130" cy="65" r="5" fill="#2b3134"/><circle cx="130" cy="65" r="1.8" fill="#9fb0b3"/><path d="M125.8 65H134.2M130 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 130 65" to="360 130 65" dur=".5s" repeatCount="indefinite"/></g></g></svg></div>
 </header>
 <main>
-<div class="card"><h2>Présence</h2>
-<p class="note" style="margin:0 0 10px">Décoche les absents <b>avant</b> de commencer le tirage. Les questions sont réparties automatiquement.</p>
-<div class="pres" id="pres"></div>
-<div class="rule" id="rule"></div></div>
 <div class="card">
   <div class="stat"><span id="s1"></span><span id="s2"></span></div>
-  <div class="bar"><i id="bar"></i></div>
+  <div class="bar"><i id="bar"></i><svg id="lk" viewBox="0 0 34 14" aria-hidden="true"><rect x="1" y="2" width="31" height="8" rx="2.5" fill="#dcdedf"/><path d="M1 5a3 3 0 0 1 3-3h6v8H1z" fill="#f28c1b"/><path d="M24 2h5a3 3 0 0 1 3 3v5h-8z" fill="#f28c1b"/><path d="M11 10q4-5 9-5t5 5z" fill="#f28c1b"/><rect x="1" y="9" width="31" height="2.5" fill="#2b3134"/><circle cx="8" cy="12" r="2" fill="#2b3134"/><circle cx="26" cy="12" r="2" fill="#2b3134"/><circle cx="32" cy="5.5" r="1" fill="#ffe08a"/></svg></div>
+  <div class="rule" id="rule"></div>
   <div class="board">
     <div class="bh"><span>Numéro / Nom</span><span class="led" id="led"></span></div>
     <div class="row"><div class="nums" id="nums"></div><div class="sep"></div><div class="names" id="names"></div></div>
@@ -123,10 +147,14 @@ th{color:var(--muted);font-weight:600;text-transform:uppercase;font-size:.75rem;
     <button id="snd" class="snd">Son : activé</button>
     <button id="reset" class="ghost">Réinitialiser</button>
   </div>
+  <div class="center" style="margin-top:12px"><a href="#" id="goPres" class="golink">Gérer les absents ↓</a></div>
 </div>
 <div class="card"><h2>La liste</h2><div class="list" id="list"></div>
 <p class="note">Points = nombre de sorties. Un nom barré a terminé ses questions.</p></div>
 <div class="card"><h2>Historique des tirages</h2><div class="table"><table><thead><tr><th>#</th><th>N°</th><th>Nom</th><th>Sortie</th><th>Question</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+<div class="card" id="presence"><h2>Présence</h2>
+<p class="note" style="margin:0 0 10px">Décoche les absents <b>avant</b> le 1er tirage (verrouillé ensuite). Pour modifier après, utilise « Réinitialiser ».</p>
+<div class="pres" id="pres"></div></div>
 </main>
 <script>
 const NAMES=["ENNAIR", "HATIM", "BIRIK", "EL HACHIMI", "ZEBBOUJ", "CHIADNI", "DENNAOUI", "LAKNIFLI", "EL GHAZOUANI", "SABRI", "EL BACHY", "AZZOUZ", "BACHIR", "REDA", "ELKOUZE", "ELMGHARI", "CHAKRANI", "IMANI", "TALIDI", "ATTOBI"];
@@ -164,7 +192,22 @@ function tiles(el,text,cls,anim){
 }
 function board(num,name,anim){tiles($('nums'),num,"n",anim);tiles($('names'),name,"",anim)}
 function badge(t,ok){const b=$('badge');b.style.display=t?"inline-block":"none";b.textContent=t||"";b.className="badge"+(ok?" ok":"")}
-function paintQ(label,text){const c=$('qcard');c.innerHTML="";const a=document.createElement('div');a.className="qn";a.textContent=label;const b=document.createElement('div');b.className="qt";b.textContent=text;c.append(a,b)}
+function paintQ(q,anim){
+  const c=$('qcard'),e=st.log[q]||{p:0};
+  c.innerHTML="";
+  const tk=document.createElement('div');tk.className="tk"+(anim?" in":"");
+  const mk=(t,cls,txt)=>{const d=document.createElement(t);if(cls)d.className=cls;if(txt!==undefined)d.textContent=txt;return d};
+  const top=mk('div','tk-top');top.append(mk('span',null,'Billet de tirage'),mk('span',null,'E1400 / E1450'));
+  const body=mk('div','tk-body'),l=mk('div','tk-l'),r=mk('div','tk-r');
+  l.append(mk('small',null,'N°'),mk('b',null,String(e.p)),mk('span',null,NAMES[e.p-1]||""));
+  r.append(mk('small',null,'Question n° '+(q+1)),mk('p',null,Q[q]));
+  body.append(l,mk('div','tk-sep'),r,mk('div','tk-stamp','VALIDÉ'));
+  tk.append(top,body);c.appendChild(tk);
+}
+function burst(){
+  const b=document.querySelector('.board'),cols=["#f28c1b","#ffb86b","#ffffff","#dcdedf"];
+  for(let i=0;i<30;i++){const d=document.createElement('span');d.className="cf";d.style.left=(Math.random()*100)+"%";d.style.background=cols[i%cols.length];d.style.animationDelay=(Math.random()*.35)+"s";d.style.animationDuration=(1.1+Math.random()*.8)+"s";b.appendChild(d);setTimeout(()=>d.remove(),2400)}
+}
 function ord(n){return n===1?"1ʳᵉ":n+"ᵉ"}
 function renderPres(){
   const box=$('pres');box.innerHTML="";
@@ -190,7 +233,7 @@ function render(){
   $('sub').textContent=ok?T+" questions · "+(N-E)+" × 2 questions, "+E+" × 3 questions":T+" questions";
   $('s1').textContent="Tirages : "+u+" / "+T;
   $('s2').textContent="Présents : "+N+" / "+P;
-  $('bar').style.width=(100*u/T)+"%";
+  $('bar').style.width=(100*u/T)+"%";$('lk').style.left="max(34px,"+(100*u/T)+"%)";
   const l=$('list');l.innerHTML="";
   NAMES.forEach((nm,k)=>{
     const i=k+1,d=document.createElement('div'),ab=st.absent.includes(i);
@@ -239,8 +282,8 @@ async function announce(p,n){
 async function revealQ(q,anim){
   const c=$('qcard');c.className="qcard show";
   if(anim)await new Promise(r=>setTimeout(r,400));
-  paintQ("Question n° "+(q+1),Q[q]);
-  if(anim){c.className="qcard show pop";$('lbl').textContent="Bonne chance !"}
+  paintQ(q,anim);
+  if(anim)$('lbl').textContent="Bonne chance !";
 }
 $('bNum').onclick=async()=>{
   const a=ids(),T=Q.length;
@@ -250,7 +293,7 @@ $('bNum').onclick=async()=>{
   const p=st.plan[st.log.length],q=st.log.length,led=$('led');
   badge("");$('qcard').className="qcard";$('lbl').textContent="Tirage en cours…";led.className="led spin";
   for(let i=0;i<26;i++){const v=a[rnd(a.length)];board(v,NAMES[v-1],false);await new Promise(r=>setTimeout(r,55+i*4))}
-  board(p,NAMES[p-1],true);
+  board(p,NAMES[p-1],true);burst();
   st.cur=p;st.cnt[p]=(st.cnt[p]||0)+1;
   const n=st.cnt[p],done=n>=maxOf(p);
   st.log.push({p,n,q});
@@ -274,6 +317,7 @@ const snd=$('snd');
 if(!SYN){snd.style.display="none";document.body.classList.add("nosyn")}
 function paintSnd(){snd.textContent=sound?"Son : activé":"Son : coupé"}
 snd.onclick=()=>{sound=!sound;try{localStorage.setItem("tirage_son",sound?"on":"off")}catch(e){}if(!sound&&SYN)SYN.cancel();else unlock();paintSnd()};
+$('goPres').onclick=e=>{e.preventDefault();$('presence').scrollIntoView({behavior:"smooth",block:"center"})};
 paintSnd();
 if(st.cur){board(st.cur,NAMES[st.cur-1],false);$('led').className="led ok";const le=st.log[st.log.length-1];if(le)revealQ(le.q,false)}else board("-","EN ATTENTE",false);
 render();
