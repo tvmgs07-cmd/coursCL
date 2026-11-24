@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tirage au sort – E1300 / E1350</title>
+<title>Tirage au sort – E1400 / E1450</title>
 <style>
 :root{--bg:#eef2f8;--card:#fff;--text:#0f1b33;--muted:#5d6b86;--border:#d8e0ee;--soft:#eef2f9;--navy:#2a3235;--navy2:#454f53;--or:#f28c1b;--ok:#13a06f;--bad:#d64545;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--card:#121a2c;--text:#e8eefc;--muted:#93a0bb;--border:#22304d;--soft:#172138;--ok:#2dd19a;--bad:#ff7a7a}}
@@ -72,12 +72,20 @@ th{color:var(--muted);font-weight:600;text-transform:uppercase;font-size:.75rem;
 .qn{font-size:.78rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--or);margin-bottom:4px}
 .qt{font-size:1.15rem;line-height:1.4}
 @keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pres{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.pi{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:6px;background:var(--soft);border-left:3px solid var(--or);font-size:.88rem;cursor:pointer}
+.pi input{accent-color:var(--or);width:16px;height:16px;margin:0}
+.pi b{min-width:20px;color:var(--or)}
+.pi.off{opacity:.45}.pi.off span{text-decoration:line-through}
+.rule{margin:12px 0 0;padding:10px 12px;border-radius:6px;background:rgba(242,140,27,.12);border:1px solid var(--or);font-size:.9rem}
+.it.abs{opacity:.3}
+@media(max-width:520px){.pres{grid-template-columns:1fr 1fr}}
 </style></head><body>
 <header>
   <div class="form">Formateur : <b>Hamid ElAsri</b></div>
   <h1>TIRAGE AU SORT</h1>
-  <div class="mod">Module : E1300 / E1350</div>
-  <p>26 tirages, 26 questions dans l’ordre · chacun sort 1 ou 2 fois (6 personnes 2 fois, 14 personnes 1 fois)</p>
+  <div class="mod">Module : E1400 / E1450</div>
+  <p id="sub">41 questions</p>
   <div class="poles"></div><div class="ties"></div><div class="rail"></div>
   <div class="train"><svg viewBox="0 0 820 70" role="img" aria-label="Train de marchandises ONCF"><g transform="translate(-154 0)"><rect x="154" y="56" width="126" height="4" fill="#2b3134"/><rect x="164" y="61" width="30" height="2" fill="#3a4448"/><rect x="240" y="61" width="30" height="2" fill="#3a4448"/><rect x="280" y="57" width="7" height="3" fill="#7d8a8d"/><g><circle cx="170" cy="65" r="5" fill="#2b3134"/><circle cx="170" cy="65" r="1.8" fill="#9fb0b3"/><path d="M165.8 65H174.2M170 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 170 65" to="360 170 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="188" cy="65" r="5" fill="#2b3134"/><circle cx="188" cy="65" r="1.8" fill="#9fb0b3"/><path d="M183.8 65H192.2M188 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 188 65" to="360 188 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="246" cy="65" r="5" fill="#2b3134"/><circle cx="246" cy="65" r="1.8" fill="#9fb0b3"/><path d="M241.8 65H250.2M246 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 246 65" to="360 246 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="264" cy="65" r="5" fill="#2b3134"/><circle cx="264" cy="65" r="1.8" fill="#9fb0b3"/><path d="M259.8 65H268.2M264 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 264 65" to="360 264 65" dur=".5s" repeatCount="indefinite"/></g><rect x="157" y="37" width="57" height="19" rx="1" fill="#f28c1b"/><path d="M161.0 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M166.4 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M171.9 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M177.3 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M182.8 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M188.2 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M193.7 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M199.1 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M204.6 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M210.0 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><rect x="157" y="37" width="57" height="2" fill="rgba(0,0,0,.18)"/><rect x="220" y="37" width="57" height="19" rx="1" fill="#5f7480"/><path d="M224.0 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M229.4 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M234.9 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M240.3 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M245.8 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M251.2 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M256.7 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M262.1 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M267.6 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M273.0 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><rect x="220" y="37" width="57" height="2" fill="rgba(0,0,0,.18)"/><rect x="287" y="56" width="126" height="4" fill="#2b3134"/><rect x="297" y="61" width="30" height="2" fill="#3a4448"/><rect x="373" y="61" width="30" height="2" fill="#3a4448"/><rect x="413" y="57" width="7" height="3" fill="#7d8a8d"/><g><circle cx="303" cy="65" r="5" fill="#2b3134"/><circle cx="303" cy="65" r="1.8" fill="#9fb0b3"/><path d="M298.8 65H307.2M303 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 303 65" to="360 303 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="321" cy="65" r="5" fill="#2b3134"/><circle cx="321" cy="65" r="1.8" fill="#9fb0b3"/><path d="M316.8 65H325.2M321 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 321 65" to="360 321 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="379" cy="65" r="5" fill="#2b3134"/><circle cx="379" cy="65" r="1.8" fill="#9fb0b3"/><path d="M374.8 65H383.2M379 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 379 65" to="360 379 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="397" cy="65" r="5" fill="#2b3134"/><circle cx="397" cy="65" r="1.8" fill="#9fb0b3"/><path d="M392.8 65H401.2M397 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 397 65" to="360 397 65" dur=".5s" repeatCount="indefinite"/></g><rect x="293" y="36" width="114" height="20" rx="10" fill="#c9ced0"/><rect x="293" y="45" width="114" height="3" fill="#f28c1b"/><path d="M323 37V55M377 37V55" stroke="#8f979a" stroke-width="1.2"/><rect x="343" y="33" width="14" height="4" rx="1.5" fill="#8f979a"/><path d="M307 34H393" stroke="#8f979a" stroke-width="1"/><rect x="420" y="56" width="126" height="4" fill="#2b3134"/><rect x="430" y="61" width="30" height="2" fill="#3a4448"/><rect x="506" y="61" width="30" height="2" fill="#3a4448"/><rect x="546" y="57" width="7" height="3" fill="#7d8a8d"/><g><circle cx="436" cy="65" r="5" fill="#2b3134"/><circle cx="436" cy="65" r="1.8" fill="#9fb0b3"/><path d="M431.8 65H440.2M436 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 436 65" to="360 436 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="454" cy="65" r="5" fill="#2b3134"/><circle cx="454" cy="65" r="1.8" fill="#9fb0b3"/><path d="M449.8 65H458.2M454 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 454 65" to="360 454 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="512" cy="65" r="5" fill="#2b3134"/><circle cx="512" cy="65" r="1.8" fill="#9fb0b3"/><path d="M507.8 65H516.2M512 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 512 65" to="360 512 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="530" cy="65" r="5" fill="#2b3134"/><circle cx="530" cy="65" r="1.8" fill="#9fb0b3"/><path d="M525.8 65H534.2M530 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 530 65" to="360 530 65" dur=".5s" repeatCount="indefinite"/></g><rect x="424" y="34" width="118" height="22" fill="#7b5b4d"/><rect x="423" y="32" width="120" height="3" fill="#5a4136"/><rect x="464" y="36" width="38" height="18" fill="#6a4c40" stroke="#4e362c" stroke-width="1"/><path d="M483 36V54" stroke="#4e362c" stroke-width="1"/><rect x="424" y="50" width="118" height="2" fill="#f28c1b"/><rect x="553" y="56" width="126" height="4" fill="#2b3134"/><rect x="563" y="61" width="30" height="2" fill="#3a4448"/><rect x="639" y="61" width="30" height="2" fill="#3a4448"/><rect x="679" y="57" width="7" height="3" fill="#7d8a8d"/><g><circle cx="569" cy="65" r="5" fill="#2b3134"/><circle cx="569" cy="65" r="1.8" fill="#9fb0b3"/><path d="M564.8 65H573.2M569 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 569 65" to="360 569 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="587" cy="65" r="5" fill="#2b3134"/><circle cx="587" cy="65" r="1.8" fill="#9fb0b3"/><path d="M582.8 65H591.2M587 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 587 65" to="360 587 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="645" cy="65" r="5" fill="#2b3134"/><circle cx="645" cy="65" r="1.8" fill="#9fb0b3"/><path d="M640.8 65H649.2M645 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 645 65" to="360 645 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="663" cy="65" r="5" fill="#2b3134"/><circle cx="663" cy="65" r="1.8" fill="#9fb0b3"/><path d="M658.8 65H667.2M663 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 663 65" to="360 663 65" dur=".5s" repeatCount="indefinite"/></g><path d="M559 36H673V49L657 56H575L559 49Z" fill="#6f7c82"/><rect x="559" y="34" width="114" height="3" fill="#56626a"/><rect x="579" y="31" width="14" height="3" fill="#56626a"/><rect x="609" y="31" width="14" height="3" fill="#56626a"/><rect x="639" y="31" width="14" height="3" fill="#56626a"/><path d="M583 37V54M616 37V56M649 37V54" stroke="#56626a" stroke-width="1.4"/><path d="M559 43H673" stroke="#f28c1b" stroke-width="2"/><rect x="686" y="56" width="126" height="4" fill="#2b3134"/><rect x="696" y="61" width="30" height="2" fill="#3a4448"/><rect x="772" y="61" width="30" height="2" fill="#3a4448"/><rect x="812" y="57" width="7" height="3" fill="#7d8a8d"/><g><circle cx="702" cy="65" r="5" fill="#2b3134"/><circle cx="702" cy="65" r="1.8" fill="#9fb0b3"/><path d="M697.8 65H706.2M702 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 702 65" to="360 702 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="720" cy="65" r="5" fill="#2b3134"/><circle cx="720" cy="65" r="1.8" fill="#9fb0b3"/><path d="M715.8 65H724.2M720 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 720 65" to="360 720 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="778" cy="65" r="5" fill="#2b3134"/><circle cx="778" cy="65" r="1.8" fill="#9fb0b3"/><path d="M773.8 65H782.2M778 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 778 65" to="360 778 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="796" cy="65" r="5" fill="#2b3134"/><circle cx="796" cy="65" r="1.8" fill="#9fb0b3"/><path d="M791.8 65H800.2M796 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 796 65" to="360 796 65" dur=".5s" repeatCount="indefinite"/></g><rect x="689" y="37" width="57" height="19" rx="1" fill="#dcdedf"/><path d="M693.0 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M698.4 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M703.9 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M709.3 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M714.8 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M720.2 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M725.7 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M731.1 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M736.6 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M742.0 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><rect x="689" y="46" width="57" height="3" fill="#f28c1b"/><rect x="689" y="37" width="57" height="2" fill="rgba(0,0,0,.18)"/><rect x="752" y="37" width="57" height="19" rx="1" fill="#34505f"/><path d="M756.0 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M761.4 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M766.9 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M772.3 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M777.8 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M783.2 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M788.7 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M794.1 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M799.6 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><path d="M805.0 39V54" stroke="rgba(0,0,0,.2)" stroke-width="1"/><rect x="752" y="37" width="57" height="2" fill="rgba(0,0,0,.18)"/></g><g transform="translate(662 0)"><path d="M147 44L200 36V54Z" fill="#ffe08a" opacity="0"/>
 <g stroke="#232a2d" stroke-width="1.8" stroke-linecap="round" fill="none"><path d="M72 31L83 22L76 16"/><path d="M70 16H84"/></g>
@@ -96,6 +104,10 @@ th{color:var(--muted);font-weight:600;text-transform:uppercase;font-size:.75rem;
 <circle cx="146" cy="46" r="1.4" fill="#ffe08a"/><g><circle cx="20" cy="65" r="5" fill="#2b3134"/><circle cx="20" cy="65" r="1.8" fill="#9fb0b3"/><path d="M15.8 65H24.2M20 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 20 65" to="360 20 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="40" cy="65" r="5" fill="#2b3134"/><circle cx="40" cy="65" r="1.8" fill="#9fb0b3"/><path d="M35.8 65H44.2M40 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 40 65" to="360 40 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="110" cy="65" r="5" fill="#2b3134"/><circle cx="110" cy="65" r="1.8" fill="#9fb0b3"/><path d="M105.8 65H114.2M110 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 110 65" to="360 110 65" dur=".5s" repeatCount="indefinite"/></g><g><circle cx="130" cy="65" r="5" fill="#2b3134"/><circle cx="130" cy="65" r="1.8" fill="#9fb0b3"/><path d="M125.8 65H134.2M130 60.8V69.2" stroke="#9fb0b3" stroke-width=".9"/><animateTransform attributeName="transform" type="rotate" from="0 130 65" to="360 130 65" dur=".5s" repeatCount="indefinite"/></g></g></svg></div>
 </header>
 <main>
+<div class="card"><h2>Présence</h2>
+<p class="note" style="margin:0 0 10px">Décoche les absents <b>avant</b> de commencer le tirage. Les questions sont réparties automatiquement.</p>
+<div class="pres" id="pres"></div>
+<div class="rule" id="rule"></div></div>
 <div class="card">
   <div class="stat"><span id="s1"></span><span id="s2"></span></div>
   <div class="bar"><i id="bar"></i></div>
@@ -113,33 +125,33 @@ th{color:var(--muted);font-weight:600;text-transform:uppercase;font-size:.75rem;
   </div>
 </div>
 <div class="card"><h2>La liste</h2><div class="list" id="list"></div>
-<p class="note">Points = nombre de sorties. Un nom barré a terminé (2 sorties).</p></div>
+<p class="note">Points = nombre de sorties. Un nom barré a terminé ses questions.</p></div>
 <div class="card"><h2>Historique des tirages</h2><div class="table"><table><thead><tr><th>#</th><th>N°</th><th>Nom</th><th>Sortie</th><th>Question</th></tr></thead><tbody id="rows"></tbody></table></div></div>
 </main>
 <script>
-const NAMES=["ENNAIR","HATIM","BIRIK","EL HACHIMI","ZEBBOUJ","CHIADNI","DENNAOUI","LAKNIFLI","EL GHAZOUANI","SABRI","EL BACHY","AZZOUZ","BACHIR","REDA","ELKOUZE","ELMGHARI","CHAKRANI","IMANI","TALIDI","ATTOBI"];
-const Q=["Décrire la chaine de traction de la locomotive E1300 ?", "Quel est le nombre de Hacheurs et donner le rôle de chacun ?", "Quelles sont les différents sectionneurs HT que peut manœuvrer le CL et décrire le rôle de chacun ?", "Quand et comment le conducteur procède à la mise en série des MT ?", "Quelles sont les charges de hacheur auxiliaire ?", "Donner les différents onduleurs équipant la locomotive E1350 et la charge de chacun ?", "Citer tous les groupes tournant (MVT,…) et leurs tension d’alimentation ?", "Quels sont les paliers de fréquence de fonctionnement des ventilateurs de la locomotive E1350 ?", "Quelles sont les différents sources d’alimentation 60V -24KHz et donner la charge de chacune ?", "Donner les causes d’ouverture du disjoncteur ultra rapide ?", "Donner les causes de coupure de la traction ?", "Décrire la procédure d’exécution de l’EPR (Essai à Puissance Réduite) ?", "Décrire la procédure d’exécution de l’EB (Essai à blanc) ?", "Comment le sécheur d’air élimine l’humidité de l’air comprimé ?", "Décrire le fonctionnement de frein d’immobilisation(parking) et quels sont les essieux équipés ?", "Conduite à tenir par un conducteur de ligne en cas de blocage mécanique d’un bloc frein P60 ?", "Décrire la Chaine cinématique de la transmission Moteur de Traction / Essieu ?", "Citer les différents relais Thermiques Q.TH. et leurs emplacements ?", "Conduite d’un conducteur en cas de disjonction de la machine au cours de route ?", "Conduite d’un mécanicien en cas de défaut de monté des pantographes", "Vérifications à faire par le conducteur en cas de défaut charge batterie (Allumage en jaune de la lampe « défaut charge batterie » sur le lumitex)", "Comment la locomotive signale au conducteur une baisse de pression dans le RP à 6bars et quelles sont les mesures de sécurité à prendre ?", "Décrire les procédures pratique pour accéder à la haute tension ?", "Décrire les opérations de préparations d’une locomotive E1350 avant sa sortie du dépôt ?", "Décrire les opérations à faire à la fin de service ?", "Décrire les procédures à faire pour la mise en véhicule ?"];
+const NAMES=["ENNAIR", "HATIM", "BIRIK", "EL HACHIMI", "ZEBBOUJ", "CHIADNI", "DENNAOUI", "LAKNIFLI", "EL GHAZOUANI", "SABRI", "EL BACHY", "AZZOUZ", "BACHIR", "REDA", "ELKOUZE", "ELMGHARI", "CHAKRANI", "IMANI", "TALIDI", "ATTOBI"];
+const Q=["Citer les différents blocs et armoires de la salle machine E1450 ?", "Décrire la chaine de traction de la locomotive E1400 ?", "Quelles sont les fonctions des consoles principale(TDD) et auxiliaire (ETD) ?", "Quels sont les éléments équipant l’armoire système ?", "Quels sont les éléments équipant l’armoire équipement ?", "Quels sont les éléments équipant l’armoire auxiliaire ?", "Quelles sont les composants d’un bloc moteur ?", "Décrire le circuit d’eau de refroidissement d’une chaine de traction ?", "Quelles sont les fonctions d’une unité de contrôle de traction (TCU) ?", "Quelles sont les fonctions d’une unité de contrôle des auxiliaires (ACU) ?", "Quelles sont les fonctions d’une unité de contrôle de frein (BCU) ?", "Quels sont les blocs qui sont équipés par des voyants de présence tension ?", "Citer les différents éléments qui sont émergés et refroidies par huile diélectrique dans la cuve à selfs ?", "Quel est le rôle de conservateur et dessiccateur de la cuve à selfs ?", "Décrire l’architecture de TCMS de la locomotive ?", "Quel est le rôle de sectionneur de la mise à la terre H(O) ?", "Quels sont les différents CVS équipant la locomotive et donner la tension de sortie, la puissance et les charges de chaque CVS ?", "Quels sont les chaines de traction qui alimentent les CVS 1 et 2 ?", "Vérification à faire par un conducteur en cas de disjonction de la machine avec isolement des deux CVS1 et 2 ?", "Les vérifications à faire en cas de défaut d’insertion Batterie 110V ?", "Citer les différents frein d’immobilisation équipant la locomotive et comment sont –ils agit sur les roues ?", "Donner les numéros des roues qui sont équipées par un frein parking ?", "Citer les différents panneaux et modules équipant l’armoire frein ?", "Citer les différents robinets que peut manœuvrer le CL et leurs emplacements ?", "Quelles sont les différentes positions du manipulateur de frein automatique ?", "Quelles sont les différentes positions du manipulateur de frein direct ?", "Décrire les procédures à faire pour la mise en véhicule ?", "Décrire les procédures à faire pour utiliser la locomotive en double traction ?", "Décrire la Chaine cinématique de la transmission d’effort Moteur de Traction / Châssis de caisse ?", "Comment la locomotive est protégée contre l’incendie ?", "Décrire les procédures pratique pour accéder à la haute tension ?", "Décrire les opérations de préparations d’une locomotive E1450 avant sa sortie du dépôt ?", "Décrire les opérations à faire à la fin de service ?", "Conduite du mécanicien en cas de difficulté de réarmement du DJ ?", "Quelles sont les conditions de fermeture DJ ?", "Quelles sont les conditions de coupure de traction ?", "Quelles sont les conditions d’activation de la vitesse imposée ?", "Les opérations à faire en cas d’absence ou d’insuffisance de l’effort de traction ?", "Quelles sont les mesures à prendre lorsque les 2 consoles ETD et TDD sont hors service ?", "Mesure à prendre en cas de défaut de l’indicateur de vitesse ?", "Les mesures à prendre en cas de perte du ventilateur salle des machines 1ou 2 ?"];
 const PRON={1:"Ennaire",5:"Zébbouge",11:"El Bachi",14:"Rida",16:"El Mrari"};
-const P=NAMES.length,MAX=2,TOTAL=26,KEY="tirage_noms_v6";
-let st={cnt:{},log:[],elim:[],cur:null};
-try{const x=localStorage.getItem(KEY);if(x)st=JSON.parse(x)||st}catch(e){}
+const P=NAMES.length,KEY="tirage_e1400_v1",MINP=14;
+let st={log:[],cnt:{},absent:[],plan:null,cur:null};
+try{const x=localStorage.getItem(KEY);if(x)st=Object.assign(st,JSON.parse(x)||{})}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
 function rnd(n){const a=new Uint32Array(1),lim=Math.floor(4294967296/n)*n;do{crypto.getRandomValues(a)}while(a[0]>=lim);return a[0]%n}
 const $=id=>document.getElementById(id);
 let busy=false;
-function pool(){const r=[];for(let i=1;i<=P;i++)if((st.cnt[i]||0)<MAX)r.push(i);return r}
-function zeros(){let z=0;for(let i=1;i<=P;i++)if(!st.cnt[i])z++;return z}
-function eligible(){return pool()}
-function makePlan(){
-  const N=P,T=TOTAL,D=T-N,GAP=3;
-  const ids=[];for(let i=1;i<=N;i++)ids.push(i);
-  for(let i=ids.length-1;i>0;i--){const j=rnd(i+1);[ids[i],ids[j]]=[ids[j],ids[i]]}
-  const lo=GAP,hi=T-1,span=hi-lo+1,slots=[];
-  for(let k=0;k<D;k++){const a=lo+Math.floor(k*span/D),b=lo+Math.floor((k+1)*span/D)-1;slots.push(a+rnd(b-a+1))}
-  const plan=new Array(T).fill(0),first={},isSlot=new Set(slots);let fi=0;
-  for(let t=0;t<T;t++){if(!isSlot.has(t)){plan[t]=ids[fi];first[ids[fi]]=t;fi++}}
-  const dbl=new Set();
-  slots.forEach(t=>{const c=Object.keys(first).map(Number).filter(p=>!dbl.has(p)&&first[p]<=t-GAP);const p=c[rnd(c.length)];dbl.add(p);plan[t]=p});
+function ids(){const r=[];for(let i=1;i<=P;i++)if(!st.absent.includes(i))r.push(i);return r}
+function maxOf(p){return st.plan?st.plan.filter(x=>x===p).length:2}
+function locked(){return busy||st.log.length>0||!!st.plan}
+function shuf(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
+function makePlan(a){
+  const N=a.length,T=Q.length,E=T-2*N;
+  if(E<0||E>N)return null;
+  let plan=null;
+  for(let k=0;k<500;k++){
+    plan=[...shuf(a),...shuf(a),...shuf(a).slice(0,E)];
+    let ok=true;for(let t=1;t<plan.length;t++)if(plan[t]===plan[t-1]){ok=false;break}
+    if(ok)break;
+  }
   return plan;
 }
 function tiles(el,text,cls,anim){
@@ -152,28 +164,51 @@ function tiles(el,text,cls,anim){
 }
 function board(num,name,anim){tiles($('nums'),num,"n",anim);tiles($('names'),name,"",anim)}
 function badge(t,ok){const b=$('badge');b.style.display=t?"inline-block":"none";b.textContent=t||"";b.className="badge"+(ok?" ok":"")}
+function paintQ(label,text){const c=$('qcard');c.innerHTML="";const a=document.createElement('div');a.className="qn";a.textContent=label;const b=document.createElement('div');b.className="qt";b.textContent=text;c.append(a,b)}
+function ord(n){return n===1?"1ʳᵉ":n+"ᵉ"}
+function renderPres(){
+  const box=$('pres');box.innerHTML="";
+  NAMES.forEach((nm,k)=>{
+    const i=k+1,lab=document.createElement('label');
+    lab.className="pi"+(st.absent.includes(i)?" off":"");
+    const cb=document.createElement('input');cb.type="checkbox";cb.checked=!st.absent.includes(i);cb.disabled=locked();
+    cb.onchange=()=>{
+      if(locked()){render();return}
+      if(cb.checked)st.absent=st.absent.filter(x=>x!==i);else st.absent.push(i);
+      save();render();
+    };
+    const b=document.createElement('b');b.textContent=i;
+    const sp=document.createElement('span');sp.textContent=nm;
+    lab.append(cb,b,sp);box.appendChild(lab);
+  });
+}
 function render(){
-  const u=st.log.length;
-  $('s1').textContent="Tirages : "+u+" / "+TOTAL;
-  $('s2').textContent="Pas encore sortis : "+zeros();
-  $('bar').style.width=(100*u/TOTAL)+"%";
+  const a=ids(),N=a.length,T=Q.length,E=T-2*N,ok=N>=MINP&&E>=0&&E<=N,u=st.log.length;
+  renderPres();
+  $('rule').textContent=ok?N+" présents : "+(N-E)+" personne"+((N-E)>1?"s":"")+" × 2 questions et "+E+" personne"+(E>1?"s":"")+" × 3 questions (total "+T+")."
+    :"Il faut au moins "+MINP+" personnes présentes pour répartir les "+T+" questions (3 questions maximum par personne).";
+  $('sub').textContent=ok?T+" questions · "+(N-E)+" × 2 questions, "+E+" × 3 questions":T+" questions";
+  $('s1').textContent="Tirages : "+u+" / "+T;
+  $('s2').textContent="Présents : "+N+" / "+P;
+  $('bar').style.width=(100*u/T)+"%";
   const l=$('list');l.innerHTML="";
   NAMES.forEach((nm,k)=>{
-    const i=k+1,d=document.createElement('div');
-    d.className="it"+((st.cnt[i]||0)>=MAX?" x":"")+(st.cur===i?" cur":"");
-    const a=document.createElement('b');a.textContent=i;
-    const b=document.createElement('span');b.textContent=nm;
-    const c=document.createElement('small');c.textContent="●".repeat(Math.min(st.cnt[i]||0,MAX));
-    const sp=document.createElement('button');sp.className="sp";sp.title="Écouter";sp.setAttribute('aria-label',"Écouter "+nm);sp.innerHTML=SPK;sp.onclick=()=>{unlock();say(spoken(k+1),true)};d.append(a,b,c,sp);l.appendChild(d);
+    const i=k+1,d=document.createElement('div'),ab=st.absent.includes(i);
+    d.className="it"+(ab?" abs":"")+((!ab&&st.plan&&(st.cnt[i]||0)>=maxOf(i))?" x":"")+(st.cur===i?" cur":"");
+    const x=document.createElement('b');x.textContent=i;
+    const y=document.createElement('span');y.textContent=nm+(ab?" (absent)":"");
+    const c=document.createElement('small');c.textContent="●".repeat(st.cnt[i]||0);
+    const sp=document.createElement('button');sp.className="sp";sp.title="Écouter";sp.setAttribute('aria-label',"Écouter "+nm);sp.innerHTML=SPK;sp.onclick=()=>{unlock();say(spoken(i),true)};
+    d.append(x,y,c,sp);l.appendChild(d);
   });
   const rows=$('rows');rows.innerHTML="";
   st.log.slice().reverse().forEach((e,idx)=>{
-    const tr=document.createElement('tr');
-    [st.log.length-idx,e.p,NAMES[e.p-1],e.n===1?"1ʳᵉ":"2ᵉ (terminé)",e.q!==undefined?"Q"+(e.q+1)+" – "+Q[e.q]:""].forEach((v,j)=>{const td=document.createElement('td');td.textContent=v;if(j===3&&e.n===MAX)td.className="tag";tr.appendChild(td)});
+    const tr=document.createElement('tr'),done=e.n>=maxOf(e.p);
+    [st.log.length-idx,e.p,NAMES[e.p-1],ord(e.n)+(done?" (terminé)":""),"Q"+(e.q+1)+" – "+Q[e.q]].forEach((v,j)=>{const td=document.createElement('td');td.textContent=v;if(j===3&&done)td.className="tag";tr.appendChild(td)});
     rows.appendChild(tr);
   });
-  $('bNum').disabled=busy||u>=TOTAL;
-  if(u>=TOTAL)$('lbl').textContent="Tirage terminé : les 26 tirages sont faits.";
+  $('bNum').disabled=busy||u>=T||!ok;
+  if(u>=T)$('lbl').textContent="Tirage terminé : les "+T+" questions sont attribuées.";
 }
 const SPK='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 010 7M19 5a10 10 0 010 14"/></svg>';
 const SYN=window.speechSynthesis||null;
@@ -186,13 +221,12 @@ function chime(){return new Promise(res=>{
   [[523,0],[659,.28],[784,.56],[1047,.84]].forEach(([f,d])=>{
     [[1,.22],[2,.08]].forEach(([m,a])=>{const o=AC.createOscillator(),g=AC.createGain();o.type="triangle";o.frequency.value=f*m;g.gain.setValueAtTime(0,t0+d);g.gain.linearRampToValueAtTime(a,t0+d+.02);g.gain.exponentialRampToValueAtTime(.001,t0+d+(d>.8?1.3:.55));o.connect(g);g.connect(AC.destination);o.start(t0+d);o.stop(t0+d+1.4)})})}catch(e){}
   setTimeout(res,2100)})}
-function voiceFor(l){const v=SYN?SYN.getVoices():[],f=x=>(x.lang||"").toLowerCase().replace("_","-");return v.find(x=>f(x).startsWith(l==="ar"?"ar-sa":"fr-fr"))||v.find(x=>f(x).startsWith(l))||null}
-function hasAr(){const v=SYN?SYN.getVoices():[];return v.length===0||v.some(x=>(x.lang||"").toLowerCase().startsWith("ar"))}
-function spoken(p){return PRON[p]||nice(NAMES[p-1])}
+function frVoice(){const v=SYN?SYN.getVoices():[],f=x=>(x.lang||"").toLowerCase().replace("_","-");return v.find(x=>f(x).startsWith("fr-fr"))||v.find(x=>f(x).startsWith("fr"))||null}
 function nice(n){return n.toLowerCase().replace(/(^|\s)\S/g,c=>c.toUpperCase())}
-function say(text,force,l){l=l||"fr";return new Promise(res=>{
+function spoken(p){return PRON[p]||nice(NAMES[p-1])}
+function say(text,force){return new Promise(res=>{
   if(!SYN||(!sound&&!force)){res();return}
-  const u=new SpeechSynthesisUtterance(text),v=voiceFor(l);u.lang=l==="ar"?"ar-SA":"fr-FR";if(v)u.voice=v;u.rate=.9;
+  const u=new SpeechSynthesisUtterance(text),v=frVoice();u.lang="fr-FR";if(v)u.voice=v;u.rate=.9;
   let done=false;const f=()=>{if(!done){done=true;res()}};
   u.onend=f;u.onerror=f;setTimeout(f,9000);
   SYN.cancel();SYN.speak(u)})}
@@ -200,32 +234,29 @@ async function announce(p,n){
   if(!SYN||!sound)return;
   $('lbl').textContent="Annonce en cours…";
   await chime();
-  await say("Attention. Numéro "+p+". "+spoken(p)+"."+(n>=MAX?" Deuxième passage.":""));
-  $('lbl').textContent=n>=MAX?"Le numéro "+p+" ne sortira plus.":"Numéro tiré.";
+  await say("Attention. Numéro "+p+". "+spoken(p)+"."+(n===2?" Deuxième passage.":n===3?" Troisième passage.":""));
 }
-function paintQ(label,text){const c=$('qcard');c.innerHTML="";const a=document.createElement('div');a.className="qn";a.textContent=label;const b=document.createElement('div');b.className="qt";b.textContent=text;c.append(a,b)}
 async function revealQ(q,anim){
   const c=$('qcard');c.className="qcard show";
-  if(anim){
-    await new Promise(r=>setTimeout(r,400));
-  }
+  if(anim)await new Promise(r=>setTimeout(r,400));
   paintQ("Question n° "+(q+1),Q[q]);
   if(anim){c.className="qcard show pop";$('lbl').textContent="Bonne chance !"}
 }
 $('bNum').onclick=async()=>{
-  const pl=eligible();if(!pl.length||busy||st.log.length>=TOTAL)return;
-  unlock();
-  busy=true;render();
-  if(!st.plan||st.plan.length!==TOTAL){st.plan=makePlan();save()}
-  const p=st.plan[st.log.length],led=$('led');
-  badge("");$('lbl').textContent="Tirage en cours…";led.className="led spin";
-  for(let i=0;i<26;i++){const v=pl[rnd(pl.length)];board(v,NAMES[v-1],false);await new Promise(r=>setTimeout(r,55+i*4))}
+  const a=ids(),T=Q.length;
+  if(busy||st.log.length>=T||a.length<MINP)return;
+  if(!st.plan){const pl=makePlan(a);if(!pl)return;st.plan=pl;save()}
+  unlock();busy=true;render();
+  const p=st.plan[st.log.length],q=st.log.length,led=$('led');
+  badge("");$('qcard').className="qcard";$('lbl').textContent="Tirage en cours…";led.className="led spin";
+  for(let i=0;i<26;i++){const v=a[rnd(a.length)];board(v,NAMES[v-1],false);await new Promise(r=>setTimeout(r,55+i*4))}
   board(p,NAMES[p-1],true);
   st.cur=p;st.cnt[p]=(st.cnt[p]||0)+1;
-  const n=st.cnt[p];const q=st.log.length;st.log.push({p,n,q});
+  const n=st.cnt[p],done=n>=maxOf(p);
+  st.log.push({p,n,q});
   led.className="led ok";
-  if(n>=MAX){badge("2ᵉ sortie · terminé",true);$('lbl').textContent="Le numéro "+p+" ne sortira plus."}
-  else{badge("1ʳᵉ sortie");$('lbl').textContent="Numéro tiré."}
+  badge(ord(n)+" sortie"+(done?" · terminé":""),done);
+  $('lbl').textContent=done?"Le numéro "+p+" ne sortira plus.":"Numéro tiré.";
   save();render();
   await announce(p,n);
   await revealQ(q,true);
@@ -236,7 +267,7 @@ $('reset').onclick=()=>{
   if(!rb.dataset.arm){rb.dataset.arm="1";rb.textContent="Cliquer encore pour confirmer";setTimeout(()=>{delete rb.dataset.arm;rb.textContent="Réinitialiser"},4000);return}
   delete rb.dataset.arm;rb.textContent="Réinitialiser";
   try{if(SYN)SYN.cancel()}catch(e){}
-  st={cnt:{},log:[],elim:[],cur:null};save();
+  st={log:[],cnt:{},absent:st.absent,plan:null,cur:null};save();
   board("-","EN ATTENTE",false);$('led').className="led";badge("");$('qcard').className="qcard";$('lbl').textContent="Prêt ? Lance le tirage.";render();
 };
 const snd=$('snd');
@@ -244,6 +275,6 @@ if(!SYN){snd.style.display="none";document.body.classList.add("nosyn")}
 function paintSnd(){snd.textContent=sound?"Son : activé":"Son : coupé"}
 snd.onclick=()=>{sound=!sound;try{localStorage.setItem("tirage_son",sound?"on":"off")}catch(e){}if(!sound&&SYN)SYN.cancel();else unlock();paintSnd()};
 paintSnd();
-if(st.cur){board(st.cur,NAMES[st.cur-1],false);$('led').className="led ok";const le=st.log[st.log.length-1];if(le&&le.q!==undefined)revealQ(le.q,false)}else board("-","EN ATTENTE",false);
+if(st.cur){board(st.cur,NAMES[st.cur-1],false);$('led').className="led ok";const le=st.log[st.log.length-1];if(le)revealQ(le.q,false)}else board("-","EN ATTENTE",false);
 render();
 </script></body></html>
